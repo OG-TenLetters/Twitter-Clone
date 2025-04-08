@@ -45,7 +45,7 @@ const LeftSidebar = () => {
     <div>
                 <section
           className="fixed w-[275px] flex flex-col items-stretch 
-        h-screen"
+        h-screen px-4"
         >
           <div className="flex flex-col items-stretch h-full space-y-4 
           mt-4">
