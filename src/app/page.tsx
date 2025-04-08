@@ -1,11 +1,6 @@
 import LeftSidebar from "@/components/LeftSidebar";
-import { AiOutlineHeart, AiOutlineRetweet } from "react-icons/ai";
-import { BsChat, BsDot, BsThreeDots } from "react-icons/bs";
-import {
-  IoShareOutline,
-  IoStatsChart,
-  IoStatsChartOutline,
-} from "react-icons/io5";
+import MainComponent from "@/components/MainComponent";
+import { BsSearch } from "react-icons/bs";
 
 const Home = () => {
   return (
@@ -13,92 +8,68 @@ const Home = () => {
       className="w-full h-full flex justify-center items-center 
     relative bg-black"
     >
-      <div className="max-w-screen-xl w-full h-full flex relative">
-        {/* left sidebar for navigation/header */}
+      <div className="max-w-[70vw] w-full h-full flex relative">
         <LeftSidebar />
-        <main className="ml-[275px] mx-2 flex h-ful w-full max-w-[600px] min-h-screen flex-col border-l-[.01em] border-r-[0.1em] border-gray-600">
-          <h1 className="text-2xl font-bold p-6 backdrop-blur bg-black/10 sticky top-0">
-            Home
-          </h1>
-          <div className="border-t-[.01em] border-b-[0.1em] px-4 flex items-stretch py-4 space-x-2 border-gray-600 relative">
-            <div className="w-10 h-10 bg-slate-400 rounded-full flex-none"></div>
-            <div className="flex flex-col w-full h-full">
+        <MainComponent />
+        <section
+          className="mt-2 w-full sticky overflow-scroll top-2 flex flex-col items-stretch 
+        h-screen px-6"
+        >
+          <div>
+            <div className="relative w-full h-full group">
               <input
+                id="searchBox"
                 type="text"
-                className="w-full h-full bg-transparent outline-none border-none p-4 border-gray-600 placeholder:text-2xl placeholder:text-gray-600"
-                placeholder="What's happening?"
+                placeholder="Search Twitter"
+                className="outline-none peer focus:border-birdie focus:border bg-neutral-900/90 w-full h-full rounded-xl pl-12 py-4"
               />
-              <div className="w-full flex justify-between items-center">
-                <div></div>
-                <div className="w-full max-w-[100px]">
-                  <button
-                    className="rounded-full bg-birdie px-4 py-2 w-full
-            text-lg font-bold text-center hover:bg-birdie/70 transition 
-            duration-200"
-                  >
-                    Tweet
-                  </button>
-                </div>
-              </div>
+              <label
+                htmlFor="searchBox"
+                className="absolute top-0 left-0 h-full flex items-center justify-center p-4
+                peer-focus:text-birdie"
+              >
+                <BsSearch className="w-5 h-5" />
+              </label>
             </div>
           </div>
-          <div className="flex flex-col">
-            {Array.from({ length: 5 }).map((_, i) => (
-              <div
-                key={i}
-                className="border-b-[.01em] p-4 flex space-x-4 border-gray-600"
-              >
-                <div>
-                  <div className="w-10 h-10 bg-slate-200 rounded-full"></div>
+          <div className="flex flex-col rounded-xl bg-neutral-900 my-4">
+            <h3 className="font-bold test-xl px-4 my-2">What's Happening</h3>
+            <div>
+              {Array.from({ length: 5 }).map((_, i) => (
+                <div
+                  key={i}
+                  className="hover:bg-white/10 p-4 last:rounded-b-xl transition duration-200"
+                >
+                  <div className="font-bold text-lg">#trending {i + 1}</div>
+                  <div className="text-xs text-neutral-400">35.8k</div>
                 </div>
-                <div className="flex flex-col">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center space-x-1">
-                      <div className="text-white text-base">Jadon Smith</div>
-                      <div className="text-gray-500"> @TenLetters</div>
-                      <div className=" text-gray-500">
-                        <BsDot />
-                      </div>
-                      <div className=" text-gray-500"> 1 hour ago</div>
-                    </div>
-                    <div>
-                      <BsThreeDots/>
-                    </div>
-                  </div>
-                  <div className="text-white text-base">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Optio expedita quae sapiente libero beatae sint fuga vel,
-                    debitis nesciunt cum atque temporibus nobis quasi
-                    necessitatibus laborum vitae quo reprehenderit, sed nostrum
-                    consectetur fugiat dicta amet ducimus? Rerum hic laborum,
-                    odit aliquam maxime quasi incidunt quaerat sit est ad fuga
-                    officia.
-                  </div>
-                  <div className="bg-slate-400 aspect-square w-full h-80 rounded-xl mt-2"></div>
-                  <div className="flex item-center justify-around space-x-20 mt-2 w-full">
-                    <div className="rounded-full hover:bg-white/20 transition duration-200 p-3 cursor-pointer">
-                      <BsChat />
-                    </div>
-                    <div className="rounded-full hover:bg-white/20 transition duration-200 p-3 cursor-pointer">
-                      <AiOutlineRetweet />
-                    </div>
-                    <div className="rounded-full hover:bg-white/20 transition duration-200 p-3 cursor-pointer">
-                      <AiOutlineHeart />
-                    </div>
-                    <div className="rounded-full hover:bg-white/20 transition duration-200 p-3 cursor-pointer">
-                      <IoStatsChartOutline />
-                    </div>
-                    <div className="rounded-full hover:bg-white/20 transition duration-200 p-3 cursor-pointer">
-                      <IoShareOutline />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </main>
-        {/* Right Section */}
-        <section></section>
+          <div className="flex flex-col rounded-xl bg-neutral-900 my-4">
+            <h3 className="font-bold test-xl px-4 my-2">Who to follow</h3>
+            <div>
+              {Array.from({ length: 5 }).map((_, i) => (
+                <div
+                  key={i}
+                  className="hover:bg-white/10 p-4 flex justify-between items-center last:rounded-b-xl transition duration-200"
+                >
+                  <div className="flex items-center space-x-2">
+                    <div className="w-10 h-10 bg-neutral-600 rounded-full flex-none"></div>
+                    <div className="flex flex-col">
+                      <div className="font-bold text-white">Other User</div>
+                      <div className="text-gray-500 text-xs">@otheruser</div>
+                    </div>
+                  </div>
+                    <button className="rounded-full px-6 py-2 bg-white text-neutral-950">
+                      Follow
+                    </button>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div></div>
+        </section>
       </div>
     </div>
   );
